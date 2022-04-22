@@ -20,7 +20,12 @@ export default function Header() {
           console.log("prepare")
             const walletResponse = await getCurrentWalletConnected();
             console.log("wallet Response",walletResponse)
-            setWalletAddress(walletResponse.address);
+            if (window.ethereum.chainId == wchainId) {
+              setWalletAddress(walletResponse.address);
+            }else{
+              setWalletAddress("")
+            }
+            
         
           
           addWalletListener();
