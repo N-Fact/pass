@@ -150,7 +150,7 @@ export default function Index() {
                 <div className="col-6 left">
                     <h1>Dwarf Knights Mint Pass</h1>
                     <p>
-                    The pass you need to become a Dwarf Knight.
+                    The pass you need to become a Dwarf Knight
                     </p>
                 </div>
             </div>
