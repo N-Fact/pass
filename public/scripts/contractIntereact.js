@@ -3,7 +3,7 @@ import NFT from '../../artifacts/contracts/mintPass.sol/mintPass.json'
 
 // 0x5FbDB2315678afecb367f032d93F642f64180aa3
 // const contractAddress = "0x5D7B20ee69b15b43671BeC0eFc74Cb02C9Ae1f62" // rinkeby
-const contractAddress = "0x1c79A1F0324ADafB71D7d9b46B0599a9e2105539" // fuji
+const contractAddress = "0x6c6aaB0C907A70A389b1aAC283c843f49C638dB4" // fuji
 
 
 
