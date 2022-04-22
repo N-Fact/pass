@@ -16,14 +16,11 @@ export default function Header() {
 
     useEffect(() => {
         const prepare = async () => {
-          if(window.ethereum.chainId == wchainId){
+          console.log("prepare")
             const walletResponse = await getCurrentWalletConnected();
             console.log("wallet Response",walletResponse)
             setWalletAddress(walletResponse.address);
-          }else {
-            setWalletAddress("");
-
-          }
+        
           
           addWalletListener();
         };
