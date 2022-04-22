@@ -1,7 +1,7 @@
 import Layout from "../components/layout";
 import Mint from "../components/mint";
 import React,{ useState,useEffect} from 'react'
-import { chainId } from "../public/const";
+import { wchainId } from "../public/const";
 import {getProof} from '../public/scripts/merkleTree'
 import {getTotalSupply, getSaleState, getMaxSupply, startSale, mintNFT,getOwnerBalance,getWalletAddress} from '../public/scripts/contractIntereact'
 
@@ -112,7 +112,7 @@ export default function Index() {
                 div2.appendChild(p2)
                 document.getElementById("mintDiv").appendChild(div2)
                }
-                else if (window.ethereum.chainId != chainId) {
+                else if (window.ethereum.chainId != wchainId) {
                     document.getElementById("mintDiv").innerHTML = ""
                     const div = document.createElement("div");
                     div.className = "col-6 center"

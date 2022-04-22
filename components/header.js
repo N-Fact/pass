@@ -1,13 +1,13 @@
 import styles from '../styles/header.module.scss'
 import React,{ useState,useEffect} from 'react'
-import { chainId } from '../public/const';
+import { wchainId } from '../public/const';
 import { connectWallet, getCurrentWalletConnected} from '../public/scripts/walletInteract'
 
 export default function Header() {
     const [walletAddress, setWalletAddress] = useState("");   
     const connectWalletPressed = async () => {
       const walletResponse = await connectWallet();
-      if(window.ethereum.chainId == chainId){
+      if(window.ethereum.chainId == wchainId){
         setWalletAddress(walletResponse.address);
       }else{
         setWalletAddress("");
@@ -16,7 +16,7 @@ export default function Header() {
 
     useEffect(() => {
         const prepare = async () => {
-          if(window.ethereum.chainId == chainId){
+          if(window.ethereum.chainId == wchainId){
             const walletResponse = await getCurrentWalletConnected();
             setWalletAddress(walletResponse.address);
           }else {
@@ -34,7 +34,7 @@ export default function Header() {
         if (window.ethereum) {
           window.ethereum.on("chainChanged", async (chainId) => {
             console.log("chainchanged")
-            if (chainId == chainId) {
+            if (chainId == wchainId) {
               setWalletAddress(window.ethereum.selectedAddress);
             } else {
               setWalletAddress("");
