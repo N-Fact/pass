@@ -1,1 +1,1 @@
-export const wchainId = 0xa869
+export const wchainId = 43114
