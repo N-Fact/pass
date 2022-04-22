@@ -60,6 +60,7 @@ export default function Header() {
                         </div>
                     </div>
                     <div className="col-6 right">
+                      
                     {walletAddress ? (
                             "Connected: " +
                             String(walletAddress).substring(0, 6) +
