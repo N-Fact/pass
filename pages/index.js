@@ -98,6 +98,7 @@ export default function Index() {
                 const div = document.createElement("div");
                 div.className = "col-6 center"
                 const h = document.createElement("p")
+                p.style.paddingLeft ="25%" 
                 p.innerText = "Connect Wallet"
                 div.appendChild(p)
                 document.getElementById("mintDiv").appendChild(div)
@@ -116,6 +117,7 @@ export default function Index() {
                     const div = document.createElement("div");
                     div.className = "col-6 center"
                     const p = document.createElement("p")
+                    p.style.paddingLeft ="25%"
                     p.innerText = "Unsupported Network"
                     div.appendChild(p)
                     document.getElementById("mintDiv").appendChild(div)
