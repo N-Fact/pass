@@ -1,0 +1,74 @@
+.quantity {
+  display: inline-block;
+  min-width: 50px;
+  width: 5%;
+  line-height: 18px;
+  font-size: 28px;
+  text-align: center;
+  user-select: none;
+  color: #5c1615;
+  border: none;
+  background: none;
+  outline: 0;
+  padding: 0;
+  font-weight: 700;
+  cursor: default;
+  @media (prefers-color-scheme: dark) {
+    color: #f8a9a7;
+  }
+
+  &::-webkit-outer-spin-button,
+  &::-webkit-inner-spin-button {
+    -webkit-appearance: none;
+    margin: 0;
+  }
+
+  &[type=number] {
+    -moz-appearance: textfield;
+  }
+}
+
+.mintgroup {
+  display: flex;
+  align-items: center;
+  width: 260px;
+  user-select: none;
+  margin:0 auto 1rem auto;
+  font-size: 1.2rem;
+  @media only screen and (max-width: (45em - 0.01em)) {
+    margin:0 auto 1rem auto;
+  }
+}
+
+.btngroup {
+  display: flex;
+  align-items: center;
+  width: 180px;
+  justify-content: center;
+}
+.price{
+  flex: 1;
+  text-align: center;
+}
+
+.btn {
+  font-size: 32px;
+  line-height: 24px;
+  display: inline-block;
+  cursor: pointer;
+  padding: 5px 20px;
+  text-decoration: none;
+  transition: all 100ms ease-in;
+  user-select: none;
+  border: none;
+  background: none;
+  outline: 0;
+}
+
+.prepend {
+
+}
+
+.append {
+
+}

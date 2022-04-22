@@ -1,0 +1,17 @@
+.footer {
+  margin: 2rem 0;
+  text-align: center;
+}
+
+.logo {
+  margin: 2rem 0;
+  background: url("/assets/img/launchart-logo.svg") center center no-repeat transparent;
+  text-indent: -9999px;
+  height: 35px;
+  width: 160px;
+  white-space: nowrap;
+  display: inline-block;
+  @media (prefers-color-scheme: dark) {
+    background-image: url("/assets/img/launchart-logodark.svg");
+  }
+}
