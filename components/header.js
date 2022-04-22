@@ -33,7 +33,7 @@ export default function Header() {
       const addWalletListener = () => {
         if (window.ethereum) {
           window.ethereum.on("chainChanged", async (chainId) => {
-            location.reload()
+            console.log("chainchanged")
             if (chainId == chainId) {
               setWalletAddress(window.ethereum.selectedAddress);
             } else {
@@ -42,6 +42,7 @@ export default function Header() {
           });
           window.ethereum.on("accountsChanged", async (accounts) => {
             console.log("account change")
+            location.reload()
             setWalletAddress("");
           });
         }
