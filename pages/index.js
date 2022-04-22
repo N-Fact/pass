@@ -130,10 +130,9 @@ export default function Index() {
                     div2.appendChild(h1)
                     div2.appendChild(p2)
                     document.getElementById("mintDiv").appendChild(div2)
-                    console.log(window.ethereum)
                 }
                 } catch (error) {
-                    console.log("sS")
+                    console.log(error)
                 }
     
         };

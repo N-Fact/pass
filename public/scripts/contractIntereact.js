@@ -142,6 +142,5 @@ const nftContract = new ethers.Contract(contractAddress, NFT.abi, signer)
     document.getElementById("mintLink").innerHTML = "Successfully minted click and see!"
     document.getElementById("mintLink").href = "https://testnet.snowtrace.io/tx/"+receipt.transactionHash
 
-    console.log(receipt)
 });
 };

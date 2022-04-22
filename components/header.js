@@ -17,9 +17,7 @@ export default function Header() {
 
     useEffect(() => {
         const prepare = async () => {
-          console.log("prepare")
             const walletResponse = await getCurrentWalletConnected();
-            console.log("wallet Response",walletResponse)
             if (window.ethereum.chainId == wchainId) {
               setWalletAddress(walletResponse.address);
             }else{
@@ -31,7 +29,6 @@ export default function Header() {
           addWalletListener();
         };
         
-        // setTimeout(prepare, 500);
         prepare()
          
       }, []);
@@ -39,8 +36,6 @@ export default function Header() {
       const addWalletListener = () => {
         if (window.ethereum) {
           window.ethereum.on("chainChanged", async (chainId) => {
-            console.log("chainchanged")
-            console.log("wallet address",window.ethereum.selectedAddress)
             if (chainId == wchainId) {
               setWalletAddress(window.ethereum.selectedAddress);
             } else {
@@ -49,7 +44,6 @@ export default function Header() {
             location.reload()
           });
           window.ethereum.on("accountsChanged", async (accounts) => {
-            console.log("account change")
             location.reload()
             setWalletAddress("");
           });

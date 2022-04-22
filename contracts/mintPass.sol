@@ -19,9 +19,7 @@ contract mintPass is ERC721Enumerable, Ownable {
     
     bool public IS_SALE_ACTIVE = false; // can we mint?
     
-    uint public constant MAX_SUPPLY = 9999; //  MAX_SUPPLY - My mintPass = number of siblings of my mintPass
-
-    uint constant NUMBER_OF_TOKENS_ALLOWED_PER_ADDRESS = 5; // How many can I mint from this mintPass?
+    uint public constant MAX_SUPPLY = 2500; //  MAX_SUPPLY - My mintPass = number of siblings of my mintPass
         
     mapping (address => uint256) addressToMintCount; // how many mint passes do i have
 
@@ -42,15 +40,12 @@ contract mintPass is ERC721Enumerable, Ownable {
     
     error InvalidMerkleProof();
 
-    constructor(string memory name, string memory symbol, string memory _GOLD_BASE_URI,string memory _SILVER_BASE_URI,bytes32 _GOLDEN_ROOT,bytes32
-     _SILVER_ROOT )
+    constructor(string memory name, string memory symbol, string memory _GOLD_BASE_URI,string memory _SILVER_BASE_URI)
     ERC721(name, symbol)
     {
         GOLD_BASE_URI = _GOLD_BASE_URI;
         SILVER_BASE_URI = _SILVER_BASE_URI;
 
-        GOLDEN_ROOT = _GOLDEN_ROOT;
-        SILVER_ROOT = _SILVER_ROOT;
         _tokenIdCounter.increment();
     }
     
