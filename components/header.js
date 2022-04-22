@@ -18,6 +18,7 @@ export default function Header() {
         const prepare = async () => {
           if(window.ethereum.chainId == wchainId){
             const walletResponse = await getCurrentWalletConnected();
+            console.log("wallet Response",walletResponse)
             setWalletAddress(walletResponse.address);
           }else {
             setWalletAddress("");
@@ -34,6 +35,7 @@ export default function Header() {
         if (window.ethereum) {
           window.ethereum.on("chainChanged", async (chainId) => {
             console.log("chainchanged")
+            console.log("wallet address",window.ethereum.selectedAddress)
             if (chainId == wchainId) {
               setWalletAddress(window.ethereum.selectedAddress);
             } else {
