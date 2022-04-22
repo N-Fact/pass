@@ -1,6 +1,7 @@
 import Layout from "../components/layout";
 import Mint from "../components/mint";
 import React,{ useState,useEffect} from 'react'
+import { chainId } from "../public/const";
 import {getProof} from '../public/scripts/merkleTree'
 import {getTotalSupply, getSaleState, getMaxSupply, startSale, mintNFT,getOwnerBalance,getWalletAddress} from '../public/scripts/contractIntereact'
 
@@ -18,8 +19,7 @@ export default function Index() {
 
     const Button = () => (    
         <>
-        
-        {!proof && totalSupply < maxSupply && isSaleActive &&
+        {!proof && totalSupply < maxSupply && isSaleActive && 
         <p>You are not whitelisted</p> } 
     
         {isSaleActive == true && totalSupply < maxSupply  && proof && allowance > ownerBalance&&
@@ -84,13 +84,24 @@ export default function Index() {
           const owner_balance = await getOwnerBalance();
           walletAddress = await getWalletAddress()
           var isVerify = checkAddressIsGold()
-          
           setProof(isVerify.verify)
           setAllowance(isVerify.allowance)
-          setTotalSupply(total_supply.toNumber())
-          setSaleActive(is_sale)
-          setMaxSupply(max_supply.toNumber())
-          setOwnerBalance(owner_balance.toNumber())
+          try {
+            setTotalSupply(total_supply.toNumber())
+            setSaleActive(is_sale)
+            setMaxSupply(max_supply.toNumber())
+            setOwnerBalance(owner_balance.toNumber())
+          } catch (error) {
+            
+          }
+        //   try {
+        //       if(window.ethereum.chainId != chainId){
+        //          console.log(document.getElementById("mintDiv")) //.innerText = '<p>Unsupported network</p><a id="mintLink" href="#"></a>'
+        //       }
+        //   } catch (error) {
+              
+        //   }
+    
         };
       
         prepare();
@@ -98,10 +109,9 @@ export default function Index() {
       
     return (
         <div className="container">
-            <div className="row row-flex row-flex-top">
-                <div className="col-6 center">
-                    {/* <Mint/> */}
-                    <Button/>
+            <div className="row row-flex row-flex-top" >
+                <div className="col-6 center" id="mintDiv" >
+                   <Button/>
                     <a id="mintLink" href="#"></a>
                 </div>
                 <div className="col-6 left">

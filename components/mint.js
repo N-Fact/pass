@@ -4,21 +4,26 @@ import styles from '../styles/mint.module.scss'
 export default function Mint(props) {
 
     useEffect(() => {
-        if( document.querySelector(".minusBtn")){
-            document.querySelector(".minusBtn").addEventListener("click", clickHandler);
-            document.querySelector(".plusBtn").addEventListener("click", clickHandler);
+        try {
+            if( document.querySelector(".minusBtn")){
+                document.querySelector(".minusBtn").addEventListener("click", clickHandler);
+                document.querySelector(".plusBtn").addEventListener("click", clickHandler);
+            }
+                        console.log(props.ownerBalance)
+                        console.log(props.allowance)
+    
+            if(props.ownerBalance+1 >= props.allowance){
+                document.getElementById("plusButton").style.display="none"
+             }
+    
+            return () => {
+                document.querySelector(".minusBtn").removeEventListener("click", clickHandler, true);
+                document.querySelector(".plusBtn").removeEventListener("click", clickHandler, true);
+            }
+        } catch (error) {
+            
         }
-                    console.log(props.ownerBalance)
-                    console.log(props.allowance)
-
-        if(props.ownerBalance+1 >= props.allowance){
-            document.getElementById("plusButton").style.display="none"
-         }
-
-        return () => {
-            document.querySelector(".minusBtn").removeEventListener("click", clickHandler, true);
-            document.querySelector(".plusBtn").removeEventListener("click", clickHandler, true);
-        }
+      
     });
 
     /** both plus and minus use the same function, but value is set by the class of the button */
@@ -52,13 +57,13 @@ export default function Mint(props) {
                     
                    
                 </div>
-                <button className="btn" onClick={props.data} >Mint</button>
+                <button className="btn" onClick={props.data} >Claim</button>
             </div>
             <div className={styles.mintgroup}>
-                <div className={styles.btngroup}>
+                {/* <div className={styles.btngroup}>
                  {props.total} / {props.max}
-                </div>
-                <div className={styles.price}>1 🔺</div>
+                </div> */}
+                {/* <div className={styles.price}>1 🔺</div> */}
             </div>
         </>
     )

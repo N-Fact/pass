@@ -31,7 +31,7 @@ export const getProof =function getProof  (whitelistAddress,_address,isGold,isSi
     }
     const merkleTree = new MerkleTree(leafNodes,keccak256,{sortPairs: true});
     const rootHash = merkleTree.getRoot(); 
-    console.log(merkleTree.toString())
+    // console.log(merkleTree.toString())
     
     try {
         if(Goldenquantitys[_address]){

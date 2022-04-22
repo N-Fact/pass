@@ -24,36 +24,54 @@ export const getWalletAddress = async () => {
 }
 
 export const getTotalSupply = async () => {
+  try {
     const connection = window.ethereum;
-const provider = new ethers.providers.Web3Provider(connection)
-const signer = provider.getSigner()
+    const provider = new ethers.providers.Web3Provider(connection)
+    const signer = provider.getSigner()
 
-// var signerAdress = await signer.getAddress();
-const nftContract = new ethers.Contract(contractAddress, NFT.abi, signer)
-  const result = await nftContract.totalSupply();
-  return result;
+    // var signerAdress = await signer.getAddress();
+    const nftContract = new ethers.Contract(contractAddress, NFT.abi, signer)
+    const result = await nftContract.totalSupply();
+    return result;
+
+  } catch (error) {
+    return 0;
+  }
+  
 };
 
 export const getSaleState = async () => {
+  try {
     const connection = window.ethereum;
-const provider = new ethers.providers.Web3Provider(connection)
-const signer = provider.getSigner()
-
-// var signerAdress = await signer.getAddress();
-const nftContract = new ethers.Contract(contractAddress, NFT.abi, signer)
-  const result = await nftContract.IS_SALE_ACTIVE();
-  return result;
+    const provider = new ethers.providers.Web3Provider(connection)
+    const signer = provider.getSigner()
+    
+    // var signerAdress = await signer.getAddress();
+    const nftContract = new ethers.Contract(contractAddress, NFT.abi, signer)
+    const result = await nftContract.IS_SALE_ACTIVE();
+    return result;
+  } catch (error) {
+    return false;
+  }
+  
+  
 };
 
 export const getMaxSupply = async () => {
+  try {
     const connection = window.ethereum;
-const provider = new ethers.providers.Web3Provider(connection)
-const signer = provider.getSigner()
+    const provider = new ethers.providers.Web3Provider(connection)
+    const signer = provider.getSigner()
 
-// var signerAdress = await signer.getAddress();
-const nftContract = new ethers.Contract(contractAddress, NFT.abi, signer)
-  const result = await nftContract.MAX_SUPPLY();
-  return result;
+    // var signerAdress = await signer.getAddress();
+    const nftContract = new ethers.Contract(contractAddress, NFT.abi, signer)
+    const result = await nftContract.MAX_SUPPLY();
+    return result;
+
+  } catch (error) {
+    return 0
+  }
+    
 }
 
 export const startSale = async () => {
@@ -111,9 +129,9 @@ const signer = provider.getSigner()
 
 // var signerAdress = await signer.getAddress();
 const nftContract = new ethers.Contract(contractAddress, NFT.abi, signer)
-  console.log("allowance",allowance)
-  console.log("quantity",quantity)
-  console.log("proof",proof)
+  // console.log("allowance",allowance)
+  // console.log("quantity",quantity)
+  // console.log("proof",proof)
   if (!window.ethereum.selectedAddress) {
     return {
       success: false
