@@ -144,32 +144,4 @@ const nftContract = new ethers.Contract(contractAddress, NFT.abi, signer)
 
     console.log(receipt)
 });
-
-
-  // //set up your Ethereum transaction
-  // const transactionParameters = {
-  //   to: contractAddress, // Required except during contract publications.
-  //   from: window.ethereum.selectedAddress, // must match user's active address.
-  //   value: 0, // hex
-  //   gasLimit: "0",
-  //   data: nftContract.privateSale(window.ethereum.selectedAddress,proof), //make call to NFT smart contract
-  // };
-  // //sign the transaction via Metamask
-  // try {
-  //   const txHash = await window.ethereum.request({
-  //     method: "eth_sendTransaction",
-  //     params: [transactionParameters],
-  //   });
-  //   return {
-  //     success: true,
-  //     status:
-  //       "✅ Check out your transaction on Etherscan: https://rinkeby.etherscan.io/tx/" +
-  //       txHash,
-  //   };
-  // } catch (error) {
-  //   return {
-  //     success: false,
-  //     status: "😥 Something went wrong: " + error.message,
-  //   };
-  // }
 };

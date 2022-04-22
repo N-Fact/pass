@@ -31,9 +31,6 @@ export default function Index() {
         { totalSupply == maxSupply &&
         <p>Sold out</p>} 
     
-        {/* {isSaleActive == true  &&
-        <button onClick={startMint} className="primary-btn"> Start Mint </button> }  */}
-    
         { ownerBalance >= allowance  && totalSupply < maxSupply && proof&&
         <p>Already minted</p> } 
     
@@ -94,13 +91,48 @@ export default function Index() {
           } catch (error) {
             
           }
-        //   try {
-        //       if(window.ethereum.chainId != chainId){
-        //          console.log(document.getElementById("mintDiv")) //.innerText = '<p>Unsupported network</p><a id="mintLink" href="#"></a>'
-        //       }
-        //   } catch (error) {
-              
-        //   }
+          
+           try {
+               if(window.ethereum.selectedAddress == null){
+                document.getElementById("mintDiv").innerHTML = ""
+                const div = document.createElement("div");
+                div.className = "col-6 center"
+                const h = document.createElement("p")
+                p.innerText = "Connect Wallet"
+                div.appendChild(p)
+                document.getElementById("mintDiv").appendChild(div)
+                const div2 = document.createElement("div");
+                div.className= "col-6 lef"
+                const h1 = document.createElement("h1");
+                h1.innerText = "Dwarf Knights Mint Pass"
+                const p2 = document.createElement("p");
+                p2.innerText = "The pass you need to become a Dwarf Knight."
+                div2.appendChild(h1)
+                div2.appendChild(p2)
+                document.getElementById("mintDiv").appendChild(div2)
+               }
+                else if (window.ethereum.chainId != chainId) {
+                    document.getElementById("mintDiv").innerHTML = ""
+                    const div = document.createElement("div");
+                    div.className = "col-6 center"
+                    const p = document.createElement("p")
+                    p.innerText = "Unsupported Network"
+                    div.appendChild(p)
+                    document.getElementById("mintDiv").appendChild(div)
+                    const div2 = document.createElement("div");
+                    div.className= "col-6 lef"
+                    const h1 = document.createElement("h1");
+                    h1.innerText = "Dwarf Knights Mint Pass"
+                    const p2 = document.createElement("p");
+                    p2.innerText = "The pass you need to become a Dwarf Knight."
+                    div2.appendChild(h1)
+                    div2.appendChild(p2)
+                    document.getElementById("mintDiv").appendChild(div2)
+                    console.log(window.ethereum)
+                }
+                } catch (error) {
+                    console.log("sS")
+                }
     
         };
       
@@ -109,8 +141,8 @@ export default function Index() {
       
     return (
         <div className="container">
-            <div className="row row-flex row-flex-top" >
-                <div className="col-6 center" id="mintDiv" >
+            <div className="row row-flex row-flex-top" id="mintDiv">
+                <div className="col-6 center"  >
                    <Button/>
                     <a id="mintLink" href="#"></a>
                 </div>

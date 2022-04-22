@@ -4,8 +4,7 @@ import { chainId } from '../public/const';
 import { connectWallet, getCurrentWalletConnected} from '../public/scripts/walletInteract'
 
 export default function Header() {
-    const [walletAddress, setWalletAddress] = useState("");
-    
+    const [walletAddress, setWalletAddress] = useState("");   
     const connectWalletPressed = async () => {
       const walletResponse = await connectWallet();
       if(window.ethereum.chainId == chainId){
@@ -42,6 +41,7 @@ export default function Header() {
             }
           });
           window.ethereum.on("accountsChanged", async (accounts) => {
+            console.log("account change")
             setWalletAddress("");
           });
         }
