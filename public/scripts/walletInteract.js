@@ -4,7 +4,6 @@ export const connectWallet = async () => {
         const addressArray = await window.ethereum.request({
           method: "eth_requestAccounts",
         });  
-        location.reload();
 
         return {
             address: addressArray[0],
